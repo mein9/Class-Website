@@ -222,3 +222,7 @@ h2 {
   font-size: 0.8em;
   text-transform: uppercase;
 }
+.wordSalad {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
