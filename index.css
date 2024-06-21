@@ -196,7 +196,6 @@ img[src*="muffin"] {
   );
 }
 aside {
-  background: url(images/scallop.png) repeat-y left top;
   background-color: #f6f3ed;
   padding: 1em;
   padding-left: 45px;
