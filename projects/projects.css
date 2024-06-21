@@ -34,14 +34,32 @@ a {
   border-bottom: 1px dotted;
   padding-bottom: 0.2em;
 }
+.project {
+  color: blue;
+}
 
 /* header styles */
 header {
+  position: relative;
   color: white;
   background: url("../images/header2.jpg") no-repeat center center;
   background-size: cover;
   text-align: center;
   height: 15em;
+  overflow: hidden;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 header p {
   font-style: italic;
@@ -49,6 +67,8 @@ header p {
   margin-top: -12px;
 }
 header h1 {
+  position: relative; /* Ensure the header text stays above the gradient */
+  z-index: 1; /* Ensure the text stays above the pseudo-element */
   margin-top: 1em;
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000,
     -1px 1px 2px #000, 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000,
@@ -57,6 +77,8 @@ header h1 {
 
 /* nav styles */
 nav {
+  position: relative; /* Ensure the nav stays above the gradient */
+  z-index: 1; /* Ensure the nav stays above the pseudo-element */
   font-family: verdana, sans-serif;
   font-weight: bold;
 }

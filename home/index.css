@@ -5,15 +5,12 @@ html {
 * {
   box-sizing: inherit;
 }
-
 body {
   font-family: Georgia, serif;
   font-size: 100%;
   background-color: white;
   margin: 0;
 }
-
-/* link styles */
 a:link,
 a:visited {
   color: #dc6903;
@@ -35,14 +32,27 @@ a {
   border-bottom: 1px dotted;
   padding-bottom: 0.2em;
 }
-
-/* header styles */
 header {
+  position: relative;
   color: white;
   background: url("../images/header2.jpg") no-repeat center center;
   background-size: cover;
   text-align: center;
   height: 15em;
+  overflow: hidden;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 header p {
   font-style: italic;
@@ -50,37 +60,37 @@ header p {
   margin-top: -12px;
 }
 header h1 {
+  position: relative;
+  z-index: 1;
   margin-top: 1em;
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000,
     -1px 1px 2px #000, 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000,
     -2px 2px 4px #000;
 }
-
-/* nav styles */
 nav {
+  position: relative;
+  z-index: 1;
   font-family: verdana, sans-serif;
-
   font-weight: bold;
 }
 footer {
   font-family: verdana, sans-serif;
-
   font-weight: bold;
-  width: 100%; /* Ensure the footer spans the full width */
-  padding: 1em 0; /* Adjust padding to fit the full width */
-  box-sizing: border-box; /* Include padding and border in the width */
-  text-align: center; /* Center the content */
+  width: 100%;
+  padding: 1em 0;
+  box-sizing: border-box;
+  text-align: center;
 }
 nav ul li a:link,
 nav ul li a:visited {
-  background-color: #dc6903; /* Solid orange background */
-  color: #fff; /* White text */
+  background-color: #dc6903;
+  color: #fff;
 }
 nav ul li a:focus,
 nav ul li a:hover,
 nav ul li a:active {
-  background-color: #f9ab33; /* Lighter orange background on hover */
-  color: #fff; /* Keep white text */
+  background-color: #f9ab33;
+  color: #fff;
 }
 nav ul {
   display: flex;
@@ -96,13 +106,11 @@ nav ul li {
 }
 nav ul li a {
   display: block;
-  border: 2px solid #dc6903; /* Match the border color with the background */
+  border: 2px solid #dc6903;
   border-radius: 0.5em;
   padding: 0.5em 1em;
   margin: 0.5em;
 }
-
-/* main "products" styles */
 main {
   font-family: "Stint Ultra Expanded", Georgia, serif;
   background-color: white;
@@ -113,6 +121,28 @@ main {
   border-radius: 25px;
   margin: 2.5%;
 }
+.profile-container {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  margin-bottom: 1em;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .profile-container {
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center align items horizontally */
+  }
+
+  .profile-container img {
+    margin-right: 0; /* Remove the right margin on the image */
+    margin-bottom: 1em; /* Add bottom margin to the image */
+  }
+}
 h3 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -120,7 +150,6 @@ h3 {
   border-top: 1px solid;
   border-left: 3px solid;
   padding-left: 1em;
-  margin-top: 2.5em;
 }
 p.more {
   font-family: verdana, sans-serif;
@@ -129,27 +158,16 @@ p.more {
   clear: left;
 }
 main img {
-  float: left;
-  margin: 0 1em 1em 0;
+  width: 15em;
+  height: auto;
+  border-radius: 50px;
+  object-fit: cover;
+  margin-right: 1em; /* Add some space between the image and text */
 }
-
 img[src*="bread"] {
   -webkit-shape-outside: ellipse(130px 95px at 50% 50%);
   shape-outside: ellipse(130px 95px at 50% 50%);
 }
-profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center align items horizontally */
-  text-align: center;
-}
-img[src*="myhead"] {
-  height: auto;
-  width: 15em;
-  border-radius: 50px;
-  object-fit: cover;
-}
-
 img[src*="muffin"] {
   margin-left: 50px;
   -webkit-shape-outside: circle(125px);
@@ -177,8 +195,6 @@ img[src*="muffin"] {
     0px 158px
   );
 }
-
-/* aside "hours" styles */
 aside {
   background: url(images/scallop.png) repeat-y left top;
   background-color: #f6f3ed;
@@ -187,7 +203,6 @@ aside {
   border-top-right-radius: 25px;
   margin: 1em 2.5% 0 10%;
 }
-/* misc styles */
 footer {
   color: #eaddc4;
   text-align: center;
