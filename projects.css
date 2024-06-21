@@ -12,6 +12,7 @@ body {
   background-color: white;
   margin: 0;
 }
+
 /* link styles */
 a:link,
 a:visited {
@@ -33,11 +34,7 @@ a {
   text-decoration: none;
   padding-bottom: 0.2em;
 }
-.project {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: larger;
-  padding: 4%;
-}
+
 .projects {
   text-align: center;
 }
@@ -65,14 +62,9 @@ header::after {
     rgba(255, 255, 255, 1) 100%
   );
 }
-header p {
-  font-style: italic;
-  font-size: 1.2em;
-  margin-top: -12px;
-}
 header h1 {
-  position: relative; /* Ensure the header text stays above the gradient */
-  z-index: 1; /* Ensure the text stays above the pseudo-element */
+  position: relative;
+  z-index: 1;
   margin-top: 1em;
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000,
     -1px 1px 2px #000, 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000,
@@ -81,19 +73,10 @@ header h1 {
 
 /* nav styles */
 nav {
-  position: relative; /* Ensure the nav stays above the gradient */
-  z-index: 1; /* Ensure the nav stays above the pseudo-element */
+  position: relative;
+  z-index: 1;
   font-family: verdana, sans-serif;
   font-weight: bold;
-}
-footer {
-  font-family: verdana, sans-serif;
-
-  font-weight: bold;
-  width: 100%;
-  padding: 1em 0;
-  box-sizing: border-box;
-  text-align: center;
 }
 nav ul li a:link,
 nav ul li a:visited {
@@ -126,7 +109,7 @@ nav ul li a {
   margin: 0.5em;
 }
 
-/* main "products" styles */
+/* main styles */
 main {
   font-family: "Stint Ultra Expanded", Georgia, serif;
   background-color: white;
@@ -136,6 +119,14 @@ main {
   border: double 4px #eaddc4;
   border-radius: 25px;
   margin: 2.5%;
+  font-weight: bold;
+}
+#game-title {
+  font-weight: 900;
+  color: white;
+  text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000,
+    -1px 1px 2px #000, 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000,
+    -2px 2px 4px #000;
 }
 h3 {
   text-transform: uppercase;
@@ -151,43 +142,47 @@ p.more {
   text-transform: uppercase;
   font-size: 0.8em;
   clear: left;
+  font-weight: 500;
 }
 main img {
   float: left;
   margin: 0 1em 1em 0;
 }
 
-img[src*="bread"] {
-  -webkit-shape-outside: ellipse(130px 95px at 50% 50%);
-  shape-outside: ellipse(130px 95px at 50% 50%);
+/* box style for number guessing game */
+.project-box,
+.container,
+#website {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(229, 239, 255);
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-weight: bolder;
+  text-align: center;
+  font-size: small;
+}
+#website {
+  width: 100%;
+  height: auto;
+  color: #555;
 }
 
-img[src*="muffin"] {
-  margin-left: 50px;
-  -webkit-shape-outside: circle(125px);
-  shape-outside: circle(125px);
-  -webkit-shape-outside: polygon(
-    0px 0px,
-    197px 0px,
-    241px 31px,
-    241px 68px,
-    226px 82px,
-    219px 131px,
-    250px 142px,
-    250px 158px,
-    0px 158px
-  );
-  shape-outside: polygon(
-    0px 0px,
-    197px 0px,
-    241px 31px,
-    241px 68px,
-    226px 82px,
-    219px 131px,
-    250px 142px,
-    250px 158px,
-    0px 158px
-  );
+/* layout styles */
+.projects-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* misc styles */
@@ -202,16 +197,60 @@ footer {
   top: 30px;
   left: 50px;
 }
-h2 {
-  font-family: "Stint Ultra Expanded", Georgia, serif;
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-.day {
-  color: #783f27;
-  font-family: verdana, sans-serif;
-  font-size: 0.8em;
-  text-transform: uppercase;
+
+#todo-form {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
 }
-.wordSalad {
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #1ce447;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[type="button"] {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+li {
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f6f6;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1);
+  margin-bottom: 10px;
 }
