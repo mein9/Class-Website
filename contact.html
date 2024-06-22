@@ -30,11 +30,102 @@
       <h2>Matt Meinke</h2>
       <h3>Contact Me</h3>
       <p class="wordSalad">Please fill out this form</p>
-      <p class="more">
-        <a href="about.html">Learn more about me...</a>
-      </p>
+      <form id="contactForm" action="" method="post">
+        <h2>Contact Form</h2>
+        <ul>
+          <li>
+            <label for="form-name">Name:</label>
+            <input
+              type="text"
+              name="username"
+              id="form-name"
+              class="textinput"
+            />
+          </li>
+          <li>
+            <label for="form-email">Email:</label>
+            <input
+              type="email"
+              name="emailaddress"
+              id="form-email"
+              class="textinput"
+            />
+          </li>
+          <li>
+            <label for="form-tel">Telephone:</label>
+            <input
+              type="tel"
+              name="telephone"
+              id="form-tel"
+              class="textinput"
+            />
+          </li>
+          <li>
+            <label for="form-story">Your Message:</label>
+            <textarea
+              name="story"
+              maxlength="600"
+              id="form-story"
+              placeholder="Enter your message here"
+            ></textarea>
+          </li>
+          <li>
+            <label for="sizes">Prefered Contact Time:</label>
+            <select name="size" id="sizes">
+              <option>Morning(8am-12pm)</option>
+              <option>Afternoon(12pm-5pm)</option>
+              <option>Evening(5pm-8pm)</option>
+            </select>
+            <em></em>
+          </li>
+
+          <li>
+            <label for="colors">Prefered Contact Method:</label>
+            <fieldset id="colors">
+              <legend>Color</legend>
+              <ul>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="red" /> Phone</label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="blue" />
+                    Email</label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="black" />
+                    No Preference</label
+                  >
+                </li>
+                
+              </ul>
+            </fieldset>
+         
+            </fieldset>
+          </li>
+          <li class="buttons">
+            <input type="submit" value="ENTER" />
+          </li>
+        </ul>
+      </form>
     </main>
 
     <footer></footer>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent the default form submission
+          const formData = new FormData(this); // Create a FormData object
+          formData.forEach((value, key) => {
+            console.log(`${key}: ${value}`); // Log each form field and value
+          });
+          this.reset(); // Reset the form fields
+        });
+    </script>
   </body>
 </html>
