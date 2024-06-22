@@ -46,7 +46,8 @@ function setGameOver() {
   guessSubmit.disabled = true;
   resetButton = document.createElement("button");
   resetButton.textContent = "Start new game";
-  document.getElementById("box").appendChild(resetButton);
+  resetButton.style.marginTop = "20px"; // Add some margin for visibility
+  document.querySelector(".project-box").appendChild(resetButton);
   resetButton.addEventListener("click", resetGame);
 }
 
@@ -62,41 +63,6 @@ function resetGame() {
   guessSubmit.disabled = false;
   guessField.value = "";
   guessField.focus();
-  lastResult.style.backgroundColor = " rgb(229, 239, 255)";
+  lastResult.style.backgroundColor = "rgb(229, 239, 255)";
   randomNumber = Math.floor(Math.random() * 100) + 1;
 }
-document
-  .getElementById("todo-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Get the value of the input field
-    let taskInput = this.querySelector('input[type="text"]');
-    let taskText = taskInput.value.trim();
-
-    if (taskText !== "") {
-      // Create a new list item
-      let li = document.createElement("li");
-      li.innerHTML = `<div class="todo-item">
-                            <span>${taskText}</span>
-                            <button class="remove" type="button">Remove</button>
-                        </div>`;
-
-      // Append li to the todo list
-      document.getElementById("todo-list").appendChild(li);
-
-      // Clear the input field
-      taskInput.value = "";
-      taskInput.focus();
-    }
-  });
-
-document
-  .getElementById("todo-list")
-  .addEventListener("click", function (event) {
-    if (event.target.classList.contains("remove")) {
-      // Remove the parent <li> element
-      let li = event.target.closest("li");
-      li.remove();
-    }
-  });
