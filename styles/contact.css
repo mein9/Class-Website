@@ -1,264 +1,61 @@
-@charset "UTF-8";
-html {
-  box-sizing: border-box;
-}
-* {
-  box-sizing: inherit;
-}
-
-body {
-  font-family: Georgia, serif;
-  font-size: 100%;
-  background-color: white;
-  margin: 0;
-}
-
-a:link,
-a:visited {
-  color: #dc6903;
-}
-a:focus,
-a:hover,
-a:active {
-  color: #f9ab33;
-}
-footer a {
-  display: inline-block;
-  border: 2px solid;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-}
-a {
-  text-decoration: none;
-  border-bottom: 1px dotted;
-  padding-bottom: 0.2em;
-}
-
-header {
-  position: relative;
-  color: white;
-  background: url("header2.jpg") no-repeat center center;
-  background-size: cover;
-  text-align: center;
-  height: 15em;
-  overflow: hidden;
-}
-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 70%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}
-header h1 {
-  position: relative;
-  z-index: 1;
-  margin-top: 1em;
-  text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000,
-    -1px 1px 2px #000, 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000,
-    -2px 2px 4px #000;
-}
-
-nav {
-  position: relative;
-  z-index: 1;
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-}
-nav ul li a:link,
-nav ul li a:visited {
-  background-color: #dc6903;
-  color: #fff;
-}
-nav ul li a:focus,
-nav ul li a:hover,
-nav ul li a:active {
-  background-color: #f9ab33;
-  color: #fff;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-nav ul li {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-nav ul li a {
-  display: block;
-  border: 2px solid #dc6903;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-}
-@media (max-width: 768px) {
-  nav ul li a {
-    padding: 0.3em 0.6em;
-    font-size: 0.9em;
-    margin: 0.2em;
-  }
-}
-@media (max-width: 480px) {
-  nav ul li a {
-    padding: 0.2em 0.4em;
-    font-size: 0.8em;
-    margin: 0.1em;
-  }
-}
-
-main {
-  font-family: "Stint Ultra Expanded", Georgia, serif;
-  background-color: white;
-  line-height: 1.8em;
-  color: #555;
-  padding: 1em;
-  border: double 4px #eaddc4;
-  border-radius: 25px;
-  margin: 2.5%;
-}
-h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #7a0002;
-  border-top: 1px solid;
-  border-left: 3px solid;
-  padding-left: 1em;
-  margin-top: 2.5em;
-}
-p.more {
-  font-family: verdana, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  clear: left;
-}
-
-input[type="submit"] {
-  width: 10em;
-  height: 2em;
-  background: white;
-  border: 1px solid #04699d;
-  border-radius: 4px;
-  font-size: inherit;
-  flex: 0 1 8em;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-input[type="submit"]:hover {
-  background-color: #04699d;
-  color: white;
-}
-
-footer {
-  color: #eaddc4;
-  text-align: center;
-  font-size: 0.8em;
-  padding: 1em;
-}
-h2 {
-  font-family: "Stint Ultra Expanded", Georgia, serif;
-}
-.day {
-  color: #783f27;
-  font-family: verdana, sans-serif;
-  font-size: 0.8em;
-  text-transform: uppercase;
-}
-.wordSalad {
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 1em;
-}
-#colors ul li,
-#features ul li {
-  margin-bottom: 0;
-}
+/* Specific styles for contact page */
 
 form {
-  max-width: 40em;
-  border: 1px solid #666;
-  border-radius: 10px;
-  background-color: #d5e2f5;
-  padding: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-li {
-  display: flex;
-  flex-wrap: wrap;
-}
-label {
-  flex: 0 0 8em;
-  margin-right: 1em;
-  margin-bottom: 4px;
-  color: #04699d;
-}
-input,
-textarea,
-fieldset {
-  flex: 1 1 20em;
-}
-
-#features label,
-#colors label {
-  flex: 1 1 auto;
-  color: #000;
-}
-
-#colors ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-input.textinput {
-  height: 2em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  padding-left: 6px;
-  font-family: inherit;
-  font-size: 0.875em;
-}
-textarea {
-  display: block;
-  height: 5em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  padding-left: 6px;
-  font-family: inherit;
-  font-size: 0.875em;
-  line-height: 1.25;
-  overflow: auto;
-  resize: none;
-}
-select {
-  margin-top: 20px;
-  height: 50%;
-  font-size: inherit;
-  margin-right: 10px;
-}
-fieldset {
+form ul {
+  list-style: none;
   padding: 0;
-  border: none;
 }
+
+form li {
+  margin-bottom: 1em;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form input[type="submit"] {
+  background: #007acc;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background: #005f99;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
 legend {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }

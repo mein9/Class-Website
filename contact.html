@@ -8,9 +8,9 @@
       href="https://fonts.googleapis.com/css?family=Stint+Ultra+Expanded"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/contact.css" />
   </head>
-
   <body>
     <header>
       <nav>
@@ -23,7 +23,6 @@
       </nav>
       <h1>Contact Me</h1>
     </header>
-
     <main>
       <h2>Matt Meinke</h2>
       <h3>Contact Me</h3>
@@ -59,50 +58,46 @@
             />
           </li>
           <li>
-            <label for="form-message">Your Message:</label>
+            <label for="form-story">Your Message:</label>
             <textarea
-              name="message"
+              name="story"
               maxlength="600"
-              id="form-message"
+              id="form-story"
               placeholder="Enter your message here"
             ></textarea>
           </li>
           <li>
-            <label for="time">Prefered Contact Time:</label>
-            <select name="times" id="time">
+            <label for="sizes">Preferred Contact Time:</label>
+            <select name="size" id="sizes">
               <option>Morning(8am-12pm)</option>
               <option>Afternoon(12pm-5pm)</option>
               <option>Evening(5pm-8pm)</option>
             </select>
-            <em></em>
           </li>
-
           <li>
-            <label for="contact method">Prefered Contact Method:</label>
-            <fieldset id="contacts">
-              <legend>Color</legend>
+            <label for="colors">Preferred Contact Method:</label>
+            <fieldset id="colors">
+              <legend>Method</legend>
               <ul>
                 <li>
                   <label
-                    ><input type="radio" name="contact type" value="Phone" /> Phone</label
+                    ><input type="radio" name="color" value="phone" />
+                    Phone</label
                   >
                 </li>
                 <li>
                   <label
-                    ><input type="radio" name="contact type" value="Email" />
+                    ><input type="radio" name="color" value="email" />
                     Email</label
                   >
                 </li>
                 <li>
                   <label
-                    ><input type="radio" name="contact type" value="No Preference" />
+                    ><input type="radio" name="color" value="no_preference" />
                     No Preference</label
                   >
                 </li>
-                
               </ul>
-            </fieldset>
-         
             </fieldset>
           </li>
           <li class="buttons">
@@ -111,28 +106,6 @@
         </ul>
       </form>
     </main>
-
     <footer></footer>
-    <script>
-      document.getElementById("contactForm").addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent the default form submission
-        const formData = new FormData(this); // Create a FormData object
-    
-        const email = formData.get('emailaddress').trim();
-        const telephone = formData.get('telephone').trim();
-    
-        if (!email && !telephone) {
-          alert('Please provide either an email address or a telephone number.');
-          return;
-        }
-    
-        formData.forEach((value, key) => {
-          console.log(`${key}: ${value}`); // Log each form field and value
-        });
-    
-        alert('Form submitted successfully!');
-        this.reset(); // Reset the form fields
-      });
-    </script>
   </body>
 </html>

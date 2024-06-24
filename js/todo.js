@@ -1,35 +1,29 @@
-document
-  .getElementById("todo-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("todo-form");
+  const input = form.querySelector('input[type="text"]');
+  const todoList = document.getElementById("todo-list");
 
-    // Get the value of the input field
-    let taskInput = this.querySelector('input[type="text"]');
-    let taskText = taskInput.value.trim();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const newTaskText = input.value.trim();
+    if (newTaskText === "") return;
 
-    if (taskText !== "") {
-      // Create a new list item
-      let li = document.createElement("li");
-      li.innerHTML = `<div class="todo-item">
-                            <span>${taskText}</span>
-                            <button class="remove" type="button">Remove</button>
-                        </div>`;
+    const newTask = document.createElement("li");
+    newTask.innerHTML = `
+      <div class="todo-item">
+        <span>${newTaskText}</span>
+        <button class="remove" type="button">Remove</button>
+      </div>
+    `;
+    todoList.appendChild(newTask);
 
-      // Append li to the todo list
-      document.getElementById("todo-list").appendChild(li);
-
-      // Clear the input field
-      taskInput.value = "";
-      taskInput.focus();
-    }
+    input.value = "";
   });
 
-document
-  .getElementById("todo-list")
-  .addEventListener("click", function (event) {
-    if (event.target.classList.contains("remove")) {
-      // Remove the parent <li> element
-      let li = event.target.closest("li");
-      li.remove();
+  todoList.addEventListener("click", function (e) {
+    if (e.target.classList.contains("remove")) {
+      const taskItem = e.target.closest("li");
+      taskItem.remove();
     }
   });
+});
