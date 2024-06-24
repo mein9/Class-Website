@@ -13,6 +13,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-align: center;
+  width: 100%;
 }
 
 .project-box img {
@@ -53,6 +54,7 @@ button[type="submit"]:hover {
 ul#todo-list {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 ul#todo-list li {
@@ -64,7 +66,6 @@ ul#todo-list li {
   justify-content: space-between;
 }
 
-/* Ensure the "Remove" buttons are on the right-hand side of the to-do list items */
 .todo-item {
   display: flex;
   justify-content: space-between;
@@ -75,7 +76,7 @@ ul#todo-list li {
   border: 2px solid #ddd;
   box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1);
   margin-bottom: 10px;
-  width: 100%; /* Ensures the box expands to fill the container */
+  width: 100%;
 }
 
 button.remove {
@@ -85,23 +86,17 @@ button.remove {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
-  margin-left: auto; /* Ensures the button is pushed to the right */
+  margin-left: auto;
 }
 
-/* Ensure the todo form and list containers take up the full width */
-#todo-form,
-#todo-list {
-  width: 100%; /* Ensures the form and list expand to fill the container */
+button.remove:hover {
+  background: darkred;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Ensures children stretch to fill the container */
-}
-
-button.remove:hover {
-  background: darkred;
+  align-items: stretch;
 }
 
 #game-title {
@@ -127,9 +122,34 @@ button.remove:hover {
 .resultParas p {
   margin: 0.5em 0;
 }
+
 .guesses,
 .lastResult,
 .lowOrHi {
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .project-box {
+    width: 100%;
+  }
+
+  .project-box img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  #website {
+    width: 100%;
+    height: auto;
+  }
 }
