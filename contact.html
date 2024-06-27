@@ -14,11 +14,36 @@
       function handleFormSubmit(event) {
         event.preventDefault(); // Prevent the default form submission
 
-        // Display a thank you message
-        alert("Thank you, I will reach out to you as soon as possible!");
+        // Check if the form is valid
+        const form = document.getElementById("contactForm");
+        if (form.checkValidity() && validateContactInfo()) {
+          // Display a thank you message
+          alert("Thank you, I will reach out to you as soon as possible!");
 
-        // Clear the form fields
-        document.getElementById("contactForm").reset();
+          // Clear the form fields
+          form.reset();
+        } else {
+          // If form is invalid, display a message (optional)
+          alert("Please fill out the form correctly.");
+        }
+      }
+
+      function validateContactInfo() {
+        const email = document.getElementById("form-email").value;
+        const phone = document.getElementById("form-tel").value;
+        if (email === "" && phone === "") {
+          document
+            .getElementById("form-email")
+            .setCustomValidity("Either email or phone number is required.");
+          document
+            .getElementById("form-tel")
+            .setCustomValidity("Either email or phone number is required.");
+          return false;
+        } else {
+          document.getElementById("form-email").setCustomValidity("");
+          document.getElementById("form-tel").setCustomValidity("");
+          return true;
+        }
       }
 
       // Attach the form submit event handler
@@ -55,6 +80,7 @@
               name="username"
               id="form-name"
               class="textinput"
+              required
             />
           </li>
           <li>
@@ -73,6 +99,7 @@
               name="telephone"
               id="form-tel"
               class="textinput"
+              pattern="^\d{10}$"
             />
           </li>
           <li>
@@ -82,6 +109,7 @@
               maxlength="600"
               id="form-story"
               placeholder="Enter your message here"
+              required
             ></textarea>
           </li>
           <li>
@@ -99,19 +127,24 @@
               <ul>
                 <li>
                   <label
-                    ><input type="radio" name="color" value="phone" />
+                    ><input type="radio" name="color" value="phone" required />
                     Phone</label
                   >
                 </li>
                 <li>
                   <label
-                    ><input type="radio" name="color" value="email" />
+                    ><input type="radio" name="color" value="email" required />
                     Email</label
                   >
                 </li>
                 <li>
                   <label
-                    ><input type="radio" name="color" value="no_preference" />
+                    ><input
+                      type="radio"
+                      name="color"
+                      value="no_preference"
+                      required
+                    />
                     No Preference</label
                   >
                 </li>
